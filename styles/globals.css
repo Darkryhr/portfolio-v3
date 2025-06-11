@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,107 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.close {
+  div {
+    &:nth-of-type(1) {
+      animation: closeTop 0.35s forwards;
+    }
+
+    &:nth-of-type(2) {
+      animation: closeBottom 0.35s forwards;
+    }
+  }
+}
+
+.open {
+  div {
+    &:nth-of-type(1) {
+      animation: openTop 0.35s forwards;
+    }
+
+    &:nth-of-type(2) {
+      animation: openBottom 0.35s forwards;
+    }
+  }
+}
+
+@keyframes closeTop {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  40% {
+    transform: translateY(500%) rotate(0);
+  }
+  60% {
+    transform: translateY(500%) rotate(0);
+  }
+  100% {
+    transform: translateY(500%) rotate(45deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes openTop {
+  0% {
+    transform: translateY(500%) rotate(45deg);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    transform: translateY(500%) rotate(0);
+  }
+  60% {
+    transform: translateY(500%) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes closeBottom {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  40% {
+    transform: translateY(-500%) rotate(0);
+  }
+  60% {
+    transform: translateY(-500%) rotate(0);
+  }
+  100% {
+    transform: translateY(-500%) rotate(-45deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes openBottom {
+  0% {
+    transform: translateY(-500%) rotate(-45deg);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    transform: translateY(-500%) rotate(0);
+  }
+  60% {
+    transform: translateY(-500%) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
 }
