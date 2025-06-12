@@ -13,7 +13,7 @@ const navLinks = [
   { name: 'home', href: '/' },
   { name: 'portfolio', href: '/portfolio' },
   { name: 'about', href: '/about' },
-  { name: 'contact', href: 'contact' },
+  { name: 'contact', href: '/contact' },
 ];
 
 const Header = () => {
@@ -59,31 +59,21 @@ const Header = () => {
         </button>
 
         {/* === Desktop Navigation === */}
-        <nav
-          className='hidden lg:flex space-x-14 flex-1 justify-center items-center'
-          aria-label='Main navigation'
-        >
-          <ul>
-            <li>
-              <Link
-                href='/'
-                className='transition-colors capitalize duration-300 px-4 py-2 hover:text-zinc-500'
-              >
-                Home
-              </Link>
-              <Link
-                href='/portfolio'
-                className='transition-colors capitalize duration-300 px-4 py-2 hover:text-zinc-500'
-              >
-                Portfolio
-              </Link>
-              <Link
-                href='/about'
-                className='transition-colors capitalize duration-300 px-4 py-2 hover:text-zinc-500'
-              >
-                About
-              </Link>
-            </li>
+        <nav className='hidden lg:block flex-1  ' aria-label='Main navigation'>
+          <ul className='flex space-x-14 items-center justify-center mx-auto'>
+            {navLinks.map(
+              (navLink, i) =>
+                navLink.name !== 'contact' && (
+                  <li key={i}>
+                    <Link
+                      href={navLink.href}
+                      className='transition-opacity ease-in opacity-70 capitalize px-4 py-2 hover:opacity-100'
+                    >
+                      {navLink.name}
+                    </Link>
+                  </li>
+                )
+            )}
           </ul>
         </nav>
         <div className='hidden lg:flex items-center space-x-4 flex-1 justify-end'>
