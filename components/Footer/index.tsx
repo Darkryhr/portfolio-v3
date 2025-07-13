@@ -9,11 +9,16 @@ import SocialButton from './SocialButton';
 
 const Footer = () => {
   return (
-    <footer className='bg-black py-16 px-8'>
+    <footer className='bg-amber-400 py-16 px-8 border-t-2'>
       <div className='flex justify-between items-center pt-3'>
         <div className='flex-1 flex flex-col items-start'>
-          <p>&copy;{new Date().getFullYear()}</p>
-          <strong>
+          <p className='font-heading font-black font-stretch-125% text-2xl'>
+            &copy;
+            <span className=' text-transparent outlined-text'>
+              {new Date().getFullYear()}
+            </span>
+          </p>
+          <strong className='font-heading font-black font-stretch-125% text-2xl leading-tight'>
             Gabriel
             <br />
             Lellouche

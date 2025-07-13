@@ -1,10 +1,11 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html className='no-scrollbar' lang='en'>
       <Head />
-      <body className="antialiased">
+
+      <body className='antialiased scroll-smooth font-display'>
         <Main />
         <NextScript />
       </body>
